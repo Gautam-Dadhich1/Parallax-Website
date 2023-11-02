@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wrapper{
+    height: 100vh;
+
+    /* we dont want to scroll in x direction */
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    /* yaha value se pharak nhi padta bs 3-D ke lie isee on krna matter krta hai */
+    perspective: 10px;
+}
+
+.container{
+    /* coz apan ko images ko overlap karwana hai to apna ko absolute dena padega waha pe to absolute apane non-static ancestor ke according
+    kaam krta hai */
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* to preserve the 3-D game jo parallax effect mai hota hai */
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+.backgroundImage{
+    transform: translateZ(-40px) scale(5);
+}
+
+.foreground{
+    transform: translateZ(-20px) scale(3);
+}
+
+
+.backgroundImage, .foreground{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    
+    /* image will fit in the container */
+    object-fit: cover;
+    z-index: -1;
+}
+
+h1{
+    position: absolute;
+    top: 5rem;
+    font-size: 8rem;
+
+    color: white;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+}
+
+section{
+    background-color: rgb(45, 45, 45);
+    color: white;
+    padding: 5rem 0;
+}
+
+.secHeading{
+    font-size: 4rem;
+    padding: 0 10rem;
+}
+
+.text
+{
+    font-size: 1.5rem;
+    padding: 0 10rem;
+    margin: 5rem 0;
+
+}
+
+.bg{
+    position: relative;
+    width: 100%;
+    
+    /* iske karan image fixed ho gayi wo move nhi kargi ab */
+    background-attachment: fixed;
+
+    /* to position the image in the center */
+    background-position: center;
+
+    /* to adjust the image completely as it might be a bit overzoomed */
+    background-size: cover;
+
+    height: 500px;
+}
+
+.desc{
+    text-align: center;
+    font-size: 6rem;
+    transform: translateY(200px);
+}
+
+.bg1{
+    background-image: url(./images/sport-1.jpg);
+}
+
+.bg2{
+    background-image: url(./images/sport-2.jpg);
+}
+
+.bg3{
+    background-image: url(./images/sport-3.jpg);
+}
+
